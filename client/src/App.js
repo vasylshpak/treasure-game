@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Board from "./components/Board";
 
 import "./App.css";
 
@@ -54,6 +55,7 @@ class App extends Component {
           <button type="submit">Submit</button>
         </form>
         <p>{this.state.responseToPost}</p>
+        <Board />
       </div>
     );
   }

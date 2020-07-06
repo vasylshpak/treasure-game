@@ -1,6 +1,5 @@
 Treasure Game Task - React Project with Node Express Backend
 
-> Example on using create-react-app with a Node Express Backend
 
 ## Usage
 

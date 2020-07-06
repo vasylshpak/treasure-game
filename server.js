@@ -1,8 +1,11 @@
-const GameService = require("./gameService");
+const { GameService, Game } = require("./gameService");
 const express = require("express");
 const path = require("path");
 const bodyParser = require("body-parser");
 const gameService = new GameService();
+const game = new Game();
+
+console.log(gameService.createGame());
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -13,6 +16,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // API calls
 app.get("/api/hello", (req, res) => {
   res.send({ express: "Hello From Express" });
+});
+
+app.post("/api/game", (req, res) => {
+  res.send(gameService.createGame(req.body.username));
 });
 
 app.post("/api/game", (req, res) => {

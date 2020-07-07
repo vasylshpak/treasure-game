@@ -1,5 +1,8 @@
 import React, { Component } from "react";
-import Board from "./components/Board";
+import Main from "./components/Main";
+import Score from "./components/Score";
+import GameBoard from "./components/GameBoard";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import "./App.css";
 
@@ -55,7 +58,13 @@ class App extends Component {
           <button type="submit">Submit</button>
         </form>
         <p>{this.state.responseToPost}</p>
-        <Board />
+        <Router>
+          <Switch>
+            <Route path="/api/main" component={Main}></Route>
+            <Route path="/api/game/id" component={GameBoard} />
+            <Route path="/api/score" component={Score} />
+          </Switch>
+        </Router>
       </div>
     );
   }

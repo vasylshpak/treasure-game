@@ -22,14 +22,6 @@ class Main extends Component {
             <p>Start New Game</p>
           </Link>
         </button>
-
-        {/*<p>
-          {
-              gameResult.topTen.map((score, index) => {
-                  return <span key={'score_' + index} className="top-score">{score}</span>
-              })
-          }
-      </p>*/}
       </div>
     );
   }

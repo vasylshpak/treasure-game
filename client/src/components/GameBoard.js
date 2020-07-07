@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Score from "./Score";
 import { Link } from "react-router-dom";
 class GameBoard extends Component {
   constructor(props, fullName, Button) {

@@ -24,9 +24,33 @@ class GameService {
       game.cells[turn.i][turn.j].opened = true;
     }
     game.turnsCounter++;
+    //game.finished = true;
     game.finished = this.isFinished(game);
-    console.log(game);
     return this._convert(game);
+  }
+
+  topGames(count) {
+    const cache = this.gameCache;
+    return Object.keys(cache)
+      .filter((id) => cache[id].finished)
+      .map((id) => {
+        const game = cache[id];
+        return {
+          id: game.id,
+          userName: game.userName,
+          score: game.turnsCounter,
+        };
+      })
+      .sort((a, b) => a.score - b.score)
+      .slice(0, count);
+  }
+  gamesScore(id) {
+    const game = this.gameCache[id];
+    return {
+      id: game.id,
+      userName: game.userName,
+      score: game.turnsCounter,
+    };
   }
 
   isFinished(game) {
@@ -53,9 +77,10 @@ class GameService {
     for (let i = 0; i < game.cells.length; i++) {
       result.cells[i] = new Array(5);
       for (let j = 0; j < game.cells.length; j++) {
-        result.cells[i][j] = game.cells[i][j].opened
-          ? game.cells[i][j].value
-          : null;
+        result.cells[i][j] =
+          game.cells[i][j].opened || game.finished
+            ? game.cells[i][j].value
+            : null;
       }
     }
     return result;

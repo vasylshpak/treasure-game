@@ -22,8 +22,8 @@ Send your turn back to the server
 POST api/game/:id/turn
 ```
 
-ID Flag - is needed to set personal route to the game and save the result in Score
-turnsCounter - actual score
+ID Flag - is needed to set personal route to the game and save the result in Score,
+turnsCounter - actual score,
 finished - to check if the user find all of the treasures
 
 ## Usage

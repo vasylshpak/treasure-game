@@ -1,3 +1,5 @@
+## CODING TASK FOR LUXOFT
+
 Treasure Game Task - React Project with Node Express Backend
 
 ## How to play now
